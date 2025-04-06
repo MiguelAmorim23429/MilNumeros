@@ -1,8 +1,7 @@
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import Services from "../components/Services";
-import About from "../components/About";
-import Contact from "../components/Contact";
+import SectionAboutContact from "../components/SectionAboutContact";
 import Footer from "../components/Footer";
 
 const Home = () => {
@@ -11,8 +10,7 @@ const Home = () => {
       <Header />
       <Hero />
       <Services />
-      <About />
-      <Contact />
+      <SectionAboutContact />
       <Footer />
     </>
   );
