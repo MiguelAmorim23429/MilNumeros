@@ -16,6 +16,12 @@ const ModalOrcamento = ({ isOpen, onClose }: ModalProps) => {
     if (state.succeeded) setSubmitted(true);
   };
 
+  // Fecha o modal ao clicar no botão "Obrigado!"
+  const handleThankYouClick = () => {
+    setSubmitted(false);
+    onClose();
+  };
+
   if (!isOpen) return null;
 
   return (
@@ -52,6 +58,7 @@ const ModalOrcamento = ({ isOpen, onClose }: ModalProps) => {
               type="email"
               name="email"
               required
+              pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
               className="w-full border border-gray-300 rounded-md px-4 py-2 mt-1"
             />
             <ValidationError prefix="Email" field="email" errors={state.errors} />
@@ -63,13 +70,20 @@ const ModalOrcamento = ({ isOpen, onClose }: ModalProps) => {
               type="tel"
               name="telefone"
               required
+              pattern="^\d{9}$"
+              title="O número deve conter exatamente 9 dígitos."
               className="w-full border border-gray-300 rounded-md px-4 py-2 mt-1"
             />
           </div>
 
           <div>
-          <label htmlFor="servico">Serviço Pretendido</label>
-            <select name="servico" id="servico" required className="w-full border px-3 py-2 rounded">
+            <label htmlFor="servico">Serviço Pretendido</label>
+            <select
+              name="servico"
+              id="servico"
+              required
+              className="w-full border px-3 py-2 rounded"
+            >
               <option value="">Escolha um serviço</option>
               <option value="Contabilidade">Contabilidade</option>
               <option value="Gestão Fiscal">Gestão Fiscal</option>
@@ -88,9 +102,14 @@ const ModalOrcamento = ({ isOpen, onClose }: ModalProps) => {
           </div>
 
           <button
-            type="submit"
+            type={submitted ? "button" : "submit"}
+            onClick={submitted ? handleThankYouClick : undefined}
             disabled={state.submitting}
-            className="w-full bg-[#001C3A] text-white font-bold py-2 rounded-md hover:bg-blue-900 transition"
+            className={`w-full font-bold py-2 rounded-md transition ${
+              submitted
+                ? "bg-green-600 hover:bg-green-700 text-white"
+                : "bg-[#001C3A] hover:bg-blue-900 text-white"
+            }`}
           >
             {submitted ? "Obrigado!" : "Enviar Pedido"}
           </button>
