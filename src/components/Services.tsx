@@ -6,17 +6,17 @@ const servicos = [
   {
     titulo: 'Contabilidade',
     descricao: 'Gestão completa da contabilidade da sua empresa, garantindo rigor e conformidade fiscal.',
-    icon: <BarChart3 size={64} className="text-white" />,
+    icon: <BarChart3 size={118} className="text-white" />,
   },
   {
     titulo: 'Gestão Fiscal',
     descricao: 'Planeamento e otimização fiscal para reduzir encargos e maximizar benefícios.',
-    icon: <FileCog size={64} className="text-white" />,
+    icon: <FileCog size={118} className="text-white" />,
   },
   {
     titulo: 'Consultoria',
     descricao: 'Aconselhamento especializado para ajudar o seu negócio a crescer de forma sustentável.',
-    icon: <FileText size={64} className="text-white" />,
+    icon: <FileText size={118} className="text-white" />,
   },
 ];
 
@@ -29,7 +29,7 @@ const Servicos: React.FC = () => {
 
   return (
     <section id="servicos" className="py-24 bg-white text-center">
-      <h2 className="text-4xl font-bold text-[#0B1F33] mb-16">Serviços</h2>
+      <h2 className="text-4xl sm:text-5xl md:text-[60px] lg:text-[67px] font-bold text-[#0B1F33] mb-16">Serviços</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto px-6">
         {servicos.map((servico, index) => (
           <div
@@ -38,19 +38,19 @@ const Servicos: React.FC = () => {
             onClick={() => toggleFlip(index)}
           >
             <div
-              className={`relative w-full h-[340px] transition-transform duration-500 transform-style-preserve-3d ${
+              className={`relative w-full h-[300px] md:h-[340px] transition-transform duration-500 transform-style-preserve-3d ${
                 flippedIndex === index ? 'rotate-y-180' : ''
               }`}
             >
               {/* Frente */}
               <div className="absolute inset-0 bg-[#0B1F33] text-white rounded-2xl p-8 flex flex-col items-center justify-center backface-hidden shadow-xl">
                 {servico.icon}
-                <h3 className="mt-6 text-2xl font-semibold">{servico.titulo}</h3>
+                <h3 className="mt-6 text-[23px] font-semibold">{servico.titulo}</h3>
               </div>
 
               {/* Verso */}
               <div className="absolute inset-0 bg-orange-500 text-white rounded-2xl p-8 flex items-center justify-center backface-hidden rotate-y-180 shadow-xl">
-                <p className="text-lg leading-relaxed font-medium">{servico.descricao}</p>
+                <p className="text-[20px] leading-relaxed font-medium">{servico.descricao}</p>
               </div>
             </div>
           </div>
