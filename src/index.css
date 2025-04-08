@@ -18,4 +18,11 @@ transform: rotateY(180deg);
 .backface-hidden {
 backface-visibility: hidden;
 }
+
+.clip-triangle {
+    clip-path: polygon(0 0, 70% 0, 60% 100%, 0% 100%);
+}
   
+html {
+    scroll-behavior: smooth;
+  }  
