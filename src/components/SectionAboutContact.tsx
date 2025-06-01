@@ -7,12 +7,12 @@ const SectionAboutContact = () => {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:justify-between gap-10">
 
         {/* Secção Sobre */}
-        <div id="sobre" className="md:w-1/2">
+        <div id="sobre" className="md:w-1/2 scroll-mt-32">
           <About />
         </div>
 
         {/* Secção Contactos */}
-        <div id="contactos" className="md:w-1/2">
+        <div id="contactos" className="md:w-1/2 scroll-mt-32">
           <Contact />
         </div>
         
